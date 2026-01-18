@@ -2,4 +2,28 @@ import dotenv from "dotenv";
 
 dotenv.config({ path: `././.env.${process.env.NODE_ENV || "development"}` });
 
-export const { PORT, NODE_ENV, DB_URI, JWT_SECRET, JWT_EXPIRES_IN } = process.env;
+export const {
+  NODE_ENV,
+  PORT,
+  API_BASE_URL,
+  MONGO_URI,
+  JWT_SECRET,
+  JWT_EXPIRES_IN,
+  BCRYPT_SALT_ROUNDS,
+  CORS_ORIGIN,
+  CLOUDINARY_CLOUD_NAME,
+  CLOUDINARY_API_KEY,
+  CLOUDINARY_API_SECRET,
+  OPENAI_API_KEY,
+  USDA_API_KEY,
+  REDIS_HOST,
+  REDIS_PORT,
+  REDIS_PASSWORD,
+  AI_QUEUE_NAME,
+  STREAK_QUEUE_NAME,
+  RATE_LIMIT_WINDOW_MS,
+  RATE_LIMIT_MAX_REQUESTS,
+  LOG_LEVEL,
+  DEFAULT_TIMEZONE,
+  STREAK_GRACE_HOURS,
+} = process.env;

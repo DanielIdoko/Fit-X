@@ -18,6 +18,12 @@
     "formik": "^2.4.9",
     "react": "19.1.0",
     "react-native": "0.81.5",
+    "react-native-dotenv": "^3.4.11",
+    "react-native-gesture-handler": "^2.30.0",
+    "react-native-image-resizer": "^1.4.5",
+    "react-native-reanimated": "^4.2.1",
+    "react-native-vision-camera": "^4.7.3",
+    "victory-native": "^41.20.2",
     "zod": "^4.3.5",
     "zustand": "^5.0.10"
   },
