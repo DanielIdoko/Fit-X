@@ -1,0 +1,42 @@
+services:
+  # Database: MongoDB
+  mongodb:
+    image: mongo:latest
+    container_name: decal_mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  redis:
+    image: redis:alpine
+    container_name: decal_redis
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+
+  # Backend: Node.js / Express
+  backend:
+    build: ./backend
+    restart: always # Automatically restarts if the OpenAI/USDA API call crashes the app
+    container_name: decal_backend
+    ports:
+      - "5000:5000"
+    env_file: ./backend/.env.production
+    environment:
+      - MONGO_URI=mongodb+srv://danielidoko46_db_user:%40%40%40Fitx1107@cluster0.dzb2yxe.mongodb.net/?appName=Cluster0
+      - REDIS_URL=redis://redis:6379
+    depends_on:
+      - mongodb
+      - redis
+    volumes:
+      - ./backend:/usr/src/app
+      - /usr/src/app/node_modules
+
+volumes:
+  mongo_data:
