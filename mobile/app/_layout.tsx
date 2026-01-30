@@ -1,12 +1,12 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-const App = () => {
+const MainLayout = () => {
   return (
-    <View>
-      <Text>App</Text>
-    </View>
+    <Stack>
+
+    </Stack>
   )
 }
 
-export default App
+export default MainLayout

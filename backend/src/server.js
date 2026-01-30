@@ -52,9 +52,10 @@ app.use(
 
 // clerk
 app.use(clerkMiddleware());
+
 // Use requireAuth() to protect this route
 // If user isn't authenticated, requireAuth() will redirect back to the homepage
-app.get("/api/v1/protected", requireAuth(), async (req, res) => {
+app.get("/api/v1/*", requireAuth(), async (req, res) => {
   // Use `getAuth()` to get the user's `userId`
   const { userId } = getAuth(req);
 
